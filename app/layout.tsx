@@ -75,7 +75,9 @@ export const metadata: Metadata = {
   },
   category: "business",
   formatDetection: {
-    telephone: true,
+    // Désactive la transformation auto des numéros en liens tel: sur iOS
+    // (le numéro reste affiché en texte, cf. demande client).
+    telephone: false,
     email: true,
     address: true,
   },
