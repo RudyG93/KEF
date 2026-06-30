@@ -1,4 +1,4 @@
-import { site } from "@/lib/site";
+import { PhoneReveal } from "@/components/PhoneReveal";
 
 export function Services() {
   return (
@@ -27,13 +27,15 @@ export function Services() {
             confort été comme hiver.
           </p>
           <ul>
-            <li>Installation mono &amp; multi-split</li>
+            <li>Installation climatisation</li>
             <li>Entretien &amp; mise en service</li>
             <li>Dépannage &amp; recharge gaz</li>
           </ul>
-          <a href={`tel:${site.phoneHref}`} className="service-link">
-            Demander un conseil →
-          </a>
+          <PhoneReveal
+            className="service-link"
+            idle="Afficher le numéro"
+            withIcon={false}
+          />
         </article>
 
         <article className="service">
@@ -50,9 +52,11 @@ export function Services() {
             <li>Recherche &amp; réparation de fuite</li>
             <li>Chauffe-eau &amp; raccordements</li>
           </ul>
-          <a href={`tel:${site.phoneHref}`} className="service-link">
-            Demander un conseil →
-          </a>
+          <PhoneReveal
+            className="service-link"
+            idle="Afficher le numéro"
+            withIcon={false}
+          />
         </article>
 
         <article className="service">
@@ -69,9 +73,11 @@ export function Services() {
             <li>Éclairage &amp; prises</li>
             <li>Dépannage &amp; recherche de panne</li>
           </ul>
-          <a href={`tel:${site.phoneHref}`} className="service-link">
-            Demander un conseil →
-          </a>
+          <PhoneReveal
+            className="service-link"
+            idle="Afficher le numéro"
+            withIcon={false}
+          />
         </article>
       </div>
     </section>

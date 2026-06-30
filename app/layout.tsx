@@ -34,6 +34,8 @@ export const metadata: Metadata = {
     "artisan Perpignan",
     "climatisation Perpignan",
     "climatisation Rivesaltes",
+    "climatisation Mitsubishi Perpignan",
+    "installateur Mitsubishi Pyrénées-Orientales",
     "plombier Perpignan",
     "sanitaire Perpignan",
     "électricien Perpignan",
@@ -41,6 +43,7 @@ export const metadata: Metadata = {
     "pompe à chaleur air air",
     "mise aux normes électrique",
     "Kentin Ferreira",
+    "KF Clim & Sanitaire",
     "KEF",
   ],
   alternates: {

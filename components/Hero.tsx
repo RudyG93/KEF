@@ -1,4 +1,5 @@
-import { site } from "@/lib/site";
+import Image from "next/image";
+import { PhoneReveal } from "@/components/PhoneReveal";
 
 export function Hero() {
   return (
@@ -6,7 +7,7 @@ export function Hero() {
       <div>
         <div className="badge">
           <span className="dot" aria-hidden="true" /> Artisan à Rivesaltes ·
-          Perpignan
+          Perpignan · 24h/24
         </div>
         <h1 id="hero-title">
           Clim, sanitaire
@@ -21,16 +22,7 @@ export function Hero() {
           votre confort au quotidien.
         </p>
         <div className="hero-actions">
-          <a
-            href={`tel:${site.phoneHref}`}
-            className="btn btn--primary btn--lg"
-            aria-label={`Appeler le ${site.phoneDisplay}`}
-          >
-            <span className="ico" aria-hidden="true">
-              ☎
-            </span>{" "}
-            Appeler maintenant
-          </a>
+          <PhoneReveal className="btn btn--primary btn--lg" />
           <a href="#contact" className="btn btn--ghost btn--lg">
             Demander un devis
           </a>
@@ -54,9 +46,15 @@ export function Hero() {
       </div>
 
       <div className="hero-media">
-        <span className="media-tag">
-          photo · artisan au travail / réalisation
-        </span>
+        <Image
+          src="/hero-clim.jpg"
+          alt="Unité de climatisation réversible installée le long d'une habitation"
+          fill
+          priority
+          sizes="(max-width: 920px) 100vw, 45vw"
+          className="hero-img"
+        />
+        <span className="media-tag">Climatisation · installation &amp; entretien</span>
         <div className="media-card">
           <div className="mark">
             K<span>E</span>F

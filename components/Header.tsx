@@ -1,4 +1,4 @@
-import { site } from "@/lib/site";
+import { PhoneReveal } from "@/components/PhoneReveal";
 
 export function Header() {
   return (
@@ -19,16 +19,7 @@ export function Header() {
         <a href="#contact" className="nav-link">
           Contact
         </a>
-        <a
-          href={`tel:${site.phoneHref}`}
-          className="btn btn--call"
-          aria-label={`Appeler le ${site.phoneDisplay}`}
-        >
-          <span className="ico" aria-hidden="true">
-            ☎
-          </span>{" "}
-          {site.phoneDisplay}
-        </a>
+        <PhoneReveal className="btn btn--call" />
       </nav>
     </header>
   );

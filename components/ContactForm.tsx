@@ -1,22 +1,33 @@
 "use client";
 
-import { useState } from "react";
+import { useActionState } from "react";
 import { site } from "@/lib/site";
+import { sendContact, type ContactState } from "@/app/actions/contact";
+
+const initialState: ContactState = { status: "idle" };
 
 export function ContactForm() {
-  const [submitted, setSubmitted] = useState(false);
-
-  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-    // TODO: brancher un vrai envoi ici (Server Action ou route API → e-mail).
-    // Pour l'instant on reproduit le comportement du prototype : état de succès visuel.
-    setSubmitted(true);
-  }
+  const [state, formAction, pending] = useActionState(
+    sendContact,
+    initialState,
+  );
+  const sent = state.status === "success";
 
   return (
-    <div className={`form-card${submitted ? " is-sent" : ""}`}>
-      <form className="quote-form" onSubmit={handleSubmit}>
+    <div className={`form-card${sent ? " is-sent" : ""}`}>
+      <form className="quote-form" action={formAction}>
         <h3>Demander un devis gratuit</h3>
+
+        {/* Champ piège anti-spam — masqué aux humains. */}
+        <input
+          type="text"
+          name="company"
+          className="hp-field"
+          tabIndex={-1}
+          autoComplete="off"
+          aria-hidden="true"
+        />
+
         <label className="field">
           Nom
           <input
@@ -54,8 +65,25 @@ export function ContactForm() {
             placeholder="Décrivez votre projet ou votre panne…"
           />
         </label>
-        <button type="submit" className="btn--submit">
-          Envoyer ma demande
+
+        <label className="consent">
+          <input type="checkbox" name="consent" value="on" required />
+          <span>
+            J&apos;accepte que {site.commercialName} utilise mon nom et mon
+            téléphone pour répondre à ma demande (base : consentement,
+            conservation 3 ans). Je peux retirer mon consentement à tout moment
+            — voir les <a href="/mentions-legales#donnees">mentions légales</a>.
+          </span>
+        </label>
+
+        {state.status === "error" && (
+          <p className="form-error" role="alert">
+            {state.message}
+          </p>
+        )}
+
+        <button type="submit" className="btn--submit" disabled={pending}>
+          {pending ? "Envoi en cours…" : "Envoyer ma demande"}
         </button>
         <p className="form-note">
           Réponse rapide · Devis gratuit &amp; sans engagement
@@ -71,9 +99,6 @@ export function ContactForm() {
           Merci ! Je vous recontacte au plus vite. Pour une demande urgente,
           appelez directement le {site.phoneDisplay}.
         </p>
-        <a href={`tel:${site.phoneHref}`} className="btn btn--pill">
-          <span aria-hidden="true">☎</span> Appeler maintenant
-        </a>
       </div>
     </div>
   );

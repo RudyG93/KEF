@@ -1,4 +1,5 @@
 import { site } from "@/lib/site";
+import { ServiceMap } from "@/components/ServiceMap";
 
 export function Zone() {
   return (
@@ -13,8 +14,8 @@ export function Zone() {
           </h2>
           <p className="lede">
             Basé à Rivesaltes, j&apos;interviens dans un rayon d&apos;environ 30
-            km autour de Perpignan. Un doute sur votre commune ? Appelez-moi, je
-            vous réponds directement.
+            km autour de Perpignan. Retrouvez la zone couverte sur la carte
+            ci-contre.
           </p>
           <div className="chips">
             {site.areasServed.map((commune) => (
@@ -23,28 +24,9 @@ export function Zone() {
               </span>
             ))}
           </div>
-          <a
-            href={`tel:${site.phoneHref}`}
-            className="btn btn--invert"
-            aria-label={`Vérifier ma commune — appeler le ${site.phoneDisplay}`}
-          >
-            <span className="ico" aria-hidden="true">
-              ☎
-            </span>{" "}
-            Vérifier ma commune
-          </a>
         </div>
 
-        <div className="map">
-          <span className="media-tag">carte · zone d&apos;intervention</span>
-          <div className="map-pin-wrap">
-            <div className="map-pin" aria-hidden="true">
-              📍
-            </div>
-            <div className="map-title">Rivesaltes (66)</div>
-            <div className="map-sub">~30 km autour de Perpignan</div>
-          </div>
-        </div>
+        <ServiceMap />
       </div>
     </section>
   );

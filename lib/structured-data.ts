@@ -10,6 +10,7 @@ export function localBusinessJsonLd() {
     "@type": ["HVACBusiness", "Plumber", "Electrician"],
     "@id": `${site.url}/#business`,
     name: site.name,
+    alternateName: site.commercialName,
     legalName: site.owner,
     description: site.description,
     url: site.url,
@@ -17,6 +18,11 @@ export function localBusinessJsonLd() {
     logo: `${site.url}/icon.svg`,
     telephone: site.phoneHref,
     email: site.email,
+    sameAs: [
+      site.socials.facebook,
+      site.socials.instagram,
+      site.socials.tiktok,
+    ],
     priceRange: "€€",
     currenciesAccepted: "EUR",
     address: {
@@ -58,9 +64,10 @@ export function localBusinessJsonLd() {
           "Thursday",
           "Friday",
           "Saturday",
+          "Sunday",
         ],
-        opens: "08:00",
-        closes: "19:00",
+        opens: "00:00",
+        closes: "23:59",
       },
     ],
     hasOfferCatalog: {

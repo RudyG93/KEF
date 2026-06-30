@@ -109,6 +109,7 @@ img {
   text-decoration: none;
   font-weight: 700;
   letter-spacing: 0.3px;
+  font-family: var(--body);
   cursor: pointer;
   border: none;
   transition:
@@ -290,17 +291,30 @@ img {
   aspect-ratio: 4 / 5;
   border-radius: 20px;
   overflow: hidden;
-  background-image: repeating-linear-gradient(
-    45deg,
-    #ebe9e5 0,
-    #ebe9e5 12px,
-    #f2f0ec 12px,
-    #f2f0ec 24px
-  );
+  background: var(--surface);
   border: 1px solid #e4e1dc;
   display: flex;
   align-items: flex-end;
   padding: 24px;
+}
+.hero-img {
+  object-fit: cover;
+  z-index: 0;
+}
+.hero-media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.5),
+    rgba(0, 0, 0, 0) 48%
+  );
+  z-index: 0;
+}
+.hero-media .media-tag,
+.hero-media .media-card {
+  z-index: 1;
 }
 .media-tag {
   position: absolute;
@@ -515,48 +529,14 @@ img {
 .map {
   position: relative;
   aspect-ratio: 1 / 1;
+  min-height: 320px;
   border-radius: 20px;
   overflow: hidden;
-  background-image: repeating-linear-gradient(
-    45deg,
-    #232325 0,
-    #232325 14px,
-    #2a2a2c 14px,
-    #2a2a2c 28px
-  );
   border: 1px solid #343436;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  background: #2a2a2c;
 }
-.map .media-tag {
-  color: #7a7a7e;
-  background: rgba(0, 0, 0, 0.35);
-}
-.map-pin-wrap {
-  text-align: center;
-}
-.map-pin {
-  width: 64px;
-  height: 64px;
-  margin: 0 auto 12px;
-  border-radius: 50%;
-  background: var(--orange);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 30px;
-  box-shadow: 0 0 0 10px rgba(255, 106, 0, 0.18);
-}
-.map-title {
-  font-family: var(--display);
-  font-size: 30px;
-  letter-spacing: 2px;
-}
-.map-sub {
-  font-size: 13px;
-  color: var(--dark-muted-2);
-  letter-spacing: 1px;
+.map.leaflet-container {
+  font-family: var(--body);
 }
 
 /* ── Atouts ──────────────────────────────────────────────── */
@@ -930,4 +910,224 @@ img {
     flex: 1 1 100%;
     justify-content: center;
   }
+}
+
+/* ── Boutons « afficher le numéro » (révélation, sans lien tel:) ── */
+
+button.service-link {
+  background: none;
+  border: none;
+  padding: 0;
+  font-family: inherit;
+  cursor: pointer;
+  text-align: left;
+}
+
+.footer-phone {
+  background: none;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  color: var(--dark-soft);
+}
+.footer-phone:hover {
+  color: var(--orange);
+}
+
+button.call-card {
+  width: 100%;
+  text-align: left;
+  font-family: var(--body);
+  border: none;
+}
+
+/* ── Formulaire : consentement RGPD, erreur, anti-spam ─────────── */
+
+.consent {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--muted);
+}
+.consent input {
+  margin-top: 2px;
+  flex: 0 0 auto;
+}
+.consent a {
+  color: var(--orange);
+}
+.form-error {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--orange-deep);
+}
+.hp-field {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+
+/* ── Lien mentions légales en pied de page ─────────────────────── */
+
+.footer-bottom a {
+  color: var(--dark-soft);
+  text-decoration: underline;
+}
+.footer-bottom a:hover {
+  color: var(--orange);
+}
+
+/* ── Page Mentions légales ─────────────────────────────────────── */
+
+.legal {
+  max-width: 820px;
+}
+.legal h1 {
+  margin: 8px 0 8px;
+}
+.legal h2 {
+  font-family: var(--display);
+  font-size: 26px;
+  letter-spacing: 0.5px;
+  margin: 34px 0 10px;
+}
+.legal p,
+.legal li {
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--ink-2);
+}
+.legal ul {
+  padding-left: 18px;
+  margin: 0 0 8px;
+}
+.legal a {
+  color: var(--orange);
+}
+.legal-back {
+  margin-top: 36px;
+  font-weight: 600;
+}
+
+/* ── Accessibilité : focus visible + contrastes ───────────────── */
+
+.btn:focus-visible,
+button.service-link:focus-visible,
+button.call-card:focus-visible,
+.btn--submit:focus-visible,
+.footer-phone:focus-visible,
+.nav-link:focus-visible,
+.field input:focus-visible,
+.field select:focus-visible,
+.field textarea:focus-visible,
+a:focus-visible {
+  outline: 3px solid var(--orange);
+  outline-offset: 2px;
+}
+.call-card .label {
+  color: var(--dark-soft);
+}
+button.service-link {
+  color: var(--orange-deep);
+}
+
+/* ── Carte de visite (section Contact) ─────────────────────────── */
+
+.business-card {
+  background: var(--anthracite);
+  border-radius: 16px;
+  padding: 28px 24px;
+  max-width: 360px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 18px 50px rgba(28, 28, 30, 0.18);
+}
+.bc-corner {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 80px;
+  height: 80px;
+  background: var(--orange);
+  clip-path: polygon(100% 0, 0 0, 100% 100%);
+}
+.bc-logo {
+  font-family: var(--display);
+  font-size: 42px;
+  letter-spacing: 8px;
+  line-height: 1;
+  color: #fff;
+  margin-bottom: 4px;
+}
+.bc-logo span {
+  color: var(--orange);
+}
+.bc-tagline {
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--dark-muted);
+  margin-bottom: 20px;
+}
+.bc-name {
+  font-weight: 700;
+  font-size: 16px;
+  color: #fff;
+  margin-bottom: 2px;
+}
+.bc-title {
+  font-size: 11px;
+  color: var(--orange-light);
+  font-weight: 600;
+  letter-spacing: 1px;
+  margin-bottom: 16px;
+}
+.bc-contacts {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.bc-contact {
+  font-size: 13px;
+  color: var(--dark-muted);
+}
+.bc-contact strong {
+  color: #fff;
+  font-weight: 600;
+}
+
+/* ── Réseaux sociaux ───────────────────────────────────────────── */
+
+.social-links {
+  display: flex;
+  gap: 12px;
+}
+.footer-social {
+  margin-top: 18px;
+}
+.social-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--anthracite-mid);
+  border: 1px solid var(--anthracite-border);
+  color: var(--dark-soft);
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+.social-link:hover {
+  background: var(--orange);
+  color: #fff;
+  transform: translateY(-2px);
 }
