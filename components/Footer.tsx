@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { site } from "@/lib/site";
-import { PhoneReveal } from "@/components/PhoneReveal";
 import { SocialLinks } from "@/components/SocialLinks";
 
 export function Footer() {
@@ -12,18 +11,25 @@ export function Footer() {
             K<span>E</span>F
           </div>
           <div className="footer-tag">{site.commercialName}</div>
-          <SocialLinks className="footer-social" />
         </div>
         <div className="footer-links">
-          <PhoneReveal className="footer-phone" withIcon={false} />
+          <span className="footer-phone">
+            <span className="ico" aria-hidden="true">
+              ☎
+            </span>{" "}
+            {site.phoneDisplay}
+          </span>
           <a href={`mailto:${site.email}`}>{site.email}</a>
           <span>Rivesaltes — 66</span>
         </div>
       </div>
-      <div className="footer-bottom">
-        © 2026 KEF — {site.commercialName} ({site.owner}) · Artisan clim,
-        sanitaire &amp; électricité à Perpignan. ·{" "}
-        <Link href="/mentions-legales">Mentions légales</Link>
+
+      <div className="footer-base">
+        <SocialLinks className="footer-social" />
+        <div className="footer-copy">
+          © 2026 KEF — {site.commercialName} ({site.owner}) ·{" "}
+          <Link href="/mentions-legales">Mentions légales</Link>
+        </div>
       </div>
     </footer>
   );

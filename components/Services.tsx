@@ -1,5 +1,3 @@
-import { PhoneReveal } from "@/components/PhoneReveal";
-
 export function Services() {
   return (
     <section id="services" className="section" aria-labelledby="services-title">
@@ -31,11 +29,9 @@ export function Services() {
             <li>Entretien &amp; mise en service</li>
             <li>Dépannage &amp; recharge gaz</li>
           </ul>
-          <PhoneReveal
-            className="service-link"
-            idle="Afficher le numéro"
-            withIcon={false}
-          />
+          <a href="#contact" className="service-link">
+            Demander un devis →
+          </a>
         </article>
 
         <article className="service">
@@ -52,11 +48,9 @@ export function Services() {
             <li>Recherche &amp; réparation de fuite</li>
             <li>Chauffe-eau &amp; raccordements</li>
           </ul>
-          <PhoneReveal
-            className="service-link"
-            idle="Afficher le numéro"
-            withIcon={false}
-          />
+          <a href="#contact" className="service-link">
+            Demander un devis →
+          </a>
         </article>
 
         <article className="service">
@@ -73,11 +67,9 @@ export function Services() {
             <li>Éclairage &amp; prises</li>
             <li>Dépannage &amp; recherche de panne</li>
           </ul>
-          <PhoneReveal
-            className="service-link"
-            idle="Afficher le numéro"
-            withIcon={false}
-          />
+          <a href="#contact" className="service-link">
+            Demander un devis →
+          </a>
         </article>
       </div>
     </section>

@@ -1,4 +1,5 @@
-import { PhoneReveal } from "@/components/PhoneReveal";
+import { site } from "@/lib/site";
+import { SocialLinks } from "@/components/SocialLinks";
 
 export function Header() {
   return (
@@ -19,7 +20,13 @@ export function Header() {
         <a href="#contact" className="nav-link">
           Contact
         </a>
-        <PhoneReveal className="btn btn--call" />
+        <SocialLinks className="header-social" />
+        <span className="header-phone">
+          <span className="ico" aria-hidden="true">
+            ☎
+          </span>{" "}
+          {site.phoneDisplay}
+        </span>
       </nav>
     </header>
   );

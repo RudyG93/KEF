@@ -201,6 +201,27 @@ img {
 /* ── Hero (clair) ────────────────────────────────────────── */
 
 .hero {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(180deg, #fff3ea 0%, #fdf5ee 100%);
+}
+.hero::before {
+  content: "";
+  position: absolute;
+  top: -120px;
+  right: -80px;
+  width: 420px;
+  height: 420px;
+  background: radial-gradient(
+    circle,
+    rgba(255, 106, 0, 0.16) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
+}
+.hero-inner {
+  position: relative;
+  z-index: 1;
   display: grid;
   grid-template-columns: 1.05fr 0.95fr;
   gap: clamp(24px, 4vw, 56px);
@@ -215,7 +236,7 @@ img {
   align-items: center;
   gap: 8px;
   padding: 7px 14px;
-  background: var(--orange-wash);
+  background: #fff;
   border: 1px solid var(--orange-wash-border);
   border-radius: 999px;
   font-size: 12px;
@@ -802,7 +823,7 @@ img {
 .site-footer {
   background: var(--anthracite);
   color: var(--dark-muted);
-  padding: 48px clamp(20px, 5vw, 64px);
+  padding: 36px clamp(20px, 5vw, 64px);
 }
 .footer-top {
   max-width: var(--shell);
@@ -842,13 +863,25 @@ img {
 .footer-links a:hover {
   color: var(--orange);
 }
-.footer-bottom {
+.footer-base {
   max-width: var(--shell);
-  margin: 28px auto 0;
-  padding-top: 22px;
+  margin: 22px auto 0;
+  padding-top: 20px;
   border-top: 1px solid var(--anthracite-mid);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
   font-size: 12px;
   color: var(--dark-faint);
+}
+.footer-copy a {
+  color: var(--dark-soft);
+  text-decoration: underline;
+}
+.footer-copy a:hover {
+  color: var(--orange);
 }
 
 /* ── Responsive ──────────────────────────────────────────── */
@@ -861,7 +894,7 @@ img {
     display: none;
   }
 
-  .hero {
+  .hero-inner {
     grid-template-columns: 1fr;
   }
   .hero-media {
@@ -912,34 +945,40 @@ img {
   }
 }
 
-/* ── Boutons « afficher le numéro » (révélation, sans lien tel:) ── */
+/* ── Numéro de téléphone affiché en texte (header / hero / footer) ── */
 
-button.service-link {
-  background: none;
-  border: none;
-  padding: 0;
-  font-family: inherit;
-  cursor: pointer;
-  text-align: left;
+.header-phone {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--orange-deep);
+  white-space: nowrap;
 }
 
-.footer-phone {
-  background: none;
-  border: none;
-  padding: 0;
-  font: inherit;
-  cursor: pointer;
-  color: var(--dark-soft);
+.hero-phone {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--display);
+  font-size: 34px;
+  letter-spacing: 1px;
+  color: var(--ink);
 }
-.footer-phone:hover {
+.hero-phone .ico {
+  font-size: 24px;
   color: var(--orange);
 }
 
-button.call-card {
-  width: 100%;
-  text-align: left;
-  font-family: var(--body);
-  border: none;
+.footer-phone {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--dark-soft);
+}
+.footer-phone .ico {
+  color: var(--orange);
 }
 
 /* ── Formulaire : consentement RGPD, erreur, anti-spam ─────────── */
@@ -971,16 +1010,6 @@ button.call-card {
   width: 1px;
   height: 1px;
   opacity: 0;
-}
-
-/* ── Lien mentions légales en pied de page ─────────────────────── */
-
-.footer-bottom a {
-  color: var(--dark-soft);
-  text-decoration: underline;
-}
-.footer-bottom a:hover {
-  color: var(--orange);
 }
 
 /* ── Page Mentions légales ─────────────────────────────────────── */
@@ -1015,13 +1044,12 @@ button.call-card {
   font-weight: 600;
 }
 
-/* ── Accessibilité : focus visible + contrastes ───────────────── */
+/* ── Accessibilité : focus visible ─────────────────────────────── */
 
 .btn:focus-visible,
-button.service-link:focus-visible,
-button.call-card:focus-visible,
+.service-link:focus-visible,
 .btn--submit:focus-visible,
-.footer-phone:focus-visible,
+.social-link:focus-visible,
 .nav-link:focus-visible,
 .field input:focus-visible,
 .field select:focus-visible,
@@ -1029,12 +1057,6 @@ button.call-card:focus-visible,
 a:focus-visible {
   outline: 3px solid var(--orange);
   outline-offset: 2px;
-}
-.call-card .label {
-  color: var(--dark-soft);
-}
-button.service-link {
-  color: var(--orange-deep);
 }
 
 /* ── Carte de visite (section Contact) ─────────────────────────── */
@@ -1102,14 +1124,11 @@ button.service-link {
   font-weight: 600;
 }
 
-/* ── Réseaux sociaux ───────────────────────────────────────────── */
+/* ── Réseaux sociaux (style adaptatif clair/sombre) ────────────── */
 
 .social-links {
   display: flex;
   gap: 12px;
-}
-.footer-social {
-  margin-top: 18px;
 }
 .social-link {
   display: inline-flex;
@@ -1118,16 +1137,54 @@ button.service-link {
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background: var(--anthracite-mid);
-  border: 1px solid var(--anthracite-border);
-  color: var(--dark-soft);
+  border: 1px solid currentColor;
+  color: inherit;
+  opacity: 0.8;
   transition:
     background 0.2s ease,
     color 0.2s ease,
+    border-color 0.2s ease,
+    opacity 0.2s ease,
     transform 0.2s ease;
 }
 .social-link:hover {
   background: var(--orange);
+  border-color: var(--orange);
   color: #fff;
+  opacity: 1;
   transform: translateY(-2px);
+}
+
+/* Couleur des icônes selon le contexte */
+.footer-social {
+  color: var(--dark-soft);
+}
+.contact-social {
+  color: var(--ink-3);
+}
+.header-social {
+  gap: 8px;
+  color: var(--muted);
+}
+.header-social .social-link {
+  width: 32px;
+  height: 32px;
+}
+.header-social .social-link svg {
+  width: 16px;
+  height: 16px;
+}
+
+.contact-follow {
+  margin-top: 22px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.contact-follow-label {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--muted-2);
 }

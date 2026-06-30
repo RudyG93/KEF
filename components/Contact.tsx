@@ -1,6 +1,7 @@
 import { site } from "@/lib/site";
 import { ContactForm } from "@/components/ContactForm";
 import { BusinessCard } from "@/components/BusinessCard";
+import { SocialLinks } from "@/components/SocialLinks";
 
 export function Contact() {
   return (
@@ -21,6 +22,11 @@ export function Contact() {
           </p>
 
           <BusinessCard />
+
+          <div className="contact-follow">
+            <span className="contact-follow-label">Suivez-nous</span>
+            <SocialLinks className="contact-social" />
+          </div>
         </div>
 
         {/* Colonne droite : formulaire */}
