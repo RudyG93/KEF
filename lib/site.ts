@@ -14,8 +14,8 @@ export const site = {
   description:
     "KEF — KF Clim & Sanitaire (Kentin Ferreira), artisan climatisation, sanitaire et électricité à Rivesaltes, Perpignan et alentours. Installation, entretien et dépannage 24h/24, par un interlocuteur unique. Devis gratuit.",
 
-  // Placeholder — à remplacer par le domaine de production.
-  url: "https://www.kef-perpignan.fr",
+  // Domaine de production.
+  url: "https://www.kef-clim.fr",
 
   phoneDisplay: "06 66 61 05 46",
   phoneHref: "+33666610546",

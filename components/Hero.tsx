@@ -53,8 +53,8 @@ export function Hero() {
 
         <div className="hero-media">
           <Image
-            src="/hero-clim.jpg"
-            alt="Unité de climatisation réversible installée le long d'une habitation"
+            src="/hero-technicien.jpg"
+            alt="Technicien effectuant la maintenance d'un système de climatisation"
             fill
             priority
             sizes="(max-width: 920px) 100vw, 45vw"

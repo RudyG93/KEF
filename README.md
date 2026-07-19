@@ -54,10 +54,9 @@ lib/
 
 ## Configuration importante
 
-- **Domaine de production** : défini par `url` dans [`lib/site.ts`](lib/site.ts).
-  Actuellement un **placeholder** (`https://www.kef-perpignan.fr`). Remplacez-le par le vrai
-  domaine — c'est le seul endroit à changer (métadonnées, sitemap, JSON-LD et Open Graph
-  s'appuient tous dessus).
+- **Domaine de production** : `https://www.kef-clim.fr`, défini par `url` dans
+  [`lib/site.ts`](lib/site.ts) — c'est le seul endroit à changer (métadonnées, sitemap,
+  JSON-LD et Open Graph s'appuient tous dessus).
 - Toutes les coordonnées (téléphone, e-mail, communes, services) vivent aussi dans
   [`lib/site.ts`](lib/site.ts).
 
