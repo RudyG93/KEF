@@ -549,6 +549,9 @@ img {
 
 .map {
   position: relative;
+  /* Enferme les z-index internes de Leaflet (400–1000) dans ce contexte
+     d'empilement, sinon la carte passe devant le header sticky au scroll. */
+  z-index: 0;
   aspect-ratio: 1 / 1;
   min-height: 320px;
   border-radius: 20px;
