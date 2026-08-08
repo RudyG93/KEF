@@ -1,5 +1,57 @@
 import { site } from "@/lib/site";
 
+export type FaqItem = { q: string; a: string };
+
+/**
+ * Données structurées d'une page métier×ville (Service + FAQPage + fil
+ * d'Ariane). Retourne un tableau d'objets JSON-LD à injecter dans la page.
+ */
+export function servicePageJsonLd(input: {
+  path: string;
+  name: string;
+  description: string;
+  serviceType: string;
+  faq: FaqItem[];
+}) {
+  const pageUrl = `${site.url}${input.path}`;
+  return [
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "@id": `${pageUrl}#service`,
+      name: input.name,
+      serviceType: input.serviceType,
+      description: input.description,
+      url: pageUrl,
+      mainEntityOfPage: pageUrl,
+      provider: { "@id": `${site.url}/#business` },
+      areaServed: site.areasServed.map((city) => ({
+        "@type": "City",
+        name: city,
+      })),
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "@id": `${pageUrl}#faq`,
+      mainEntityOfPage: pageUrl,
+      mainEntity: input.faq.map((item) => ({
+        "@type": "Question",
+        name: item.q,
+        acceptedAnswer: { "@type": "Answer", text: item.a },
+      })),
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Accueil", item: site.url },
+        { "@type": "ListItem", position: 2, name: input.name, item: pageUrl },
+      ],
+    },
+  ];
+}
+
 /**
  * Données structurées schema.org pour une entreprise locale multi-métiers
  * (clim / sanitaire / électricité). Injecté en JSON-LD dans le <head>.

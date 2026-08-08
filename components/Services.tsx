@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export function Services() {
   return (
     <section id="services" className="section" aria-labelledby="services-title">
@@ -27,11 +29,16 @@ export function Services() {
           <ul>
             <li>Installation climatisation</li>
             <li>Entretien &amp; mise en service</li>
-            <li>Dépannage &amp; recharge gaz</li>
+            <li>Dépannage &amp; recharge de gaz</li>
           </ul>
-          <a href="#contact" className="service-link">
-            Demander un devis →
-          </a>
+          <div className="service-links">
+            <a href="#contact" className="service-link">
+              Demander un devis →
+            </a>
+            <Link href="/climatisation-perpignan" className="service-more">
+              En savoir plus : climatisation à Perpignan
+            </Link>
+          </div>
         </article>
 
         <article className="service">
@@ -48,9 +55,14 @@ export function Services() {
             <li>Recherche &amp; réparation de fuite</li>
             <li>Chauffe-eau &amp; raccordements</li>
           </ul>
-          <a href="#contact" className="service-link">
-            Demander un devis →
-          </a>
+          <div className="service-links">
+            <a href="#contact" className="service-link">
+              Demander un devis →
+            </a>
+            <Link href="/plombier-perpignan" className="service-more">
+              En savoir plus : plombier à Perpignan
+            </Link>
+          </div>
         </article>
 
         <article className="service">
@@ -67,9 +79,14 @@ export function Services() {
             <li>Éclairage &amp; prises</li>
             <li>Dépannage &amp; recherche de panne</li>
           </ul>
-          <a href="#contact" className="service-link">
-            Demander un devis →
-          </a>
+          <div className="service-links">
+            <a href="#contact" className="service-link">
+              Demander un devis →
+            </a>
+            <Link href="/electricien-perpignan" className="service-more">
+              En savoir plus : électricien à Perpignan
+            </Link>
+          </div>
         </article>
       </div>
     </section>

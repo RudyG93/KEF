@@ -57,10 +57,10 @@ export const metadata: Metadata = {
     title: "KEF — Clim · Sanitaire · Électricité · Artisan à Perpignan",
     description: site.description,
   },
+  // Seul `card` est fixé : title/description Twitter sont auto-remplis
+  // depuis l'openGraph de chaque page (accueil comme pages métier×ville).
   twitter: {
     card: "summary_large_image",
-    title: "KEF — Clim · Sanitaire · Électricité · Artisan à Perpignan",
-    description: site.description,
   },
   robots: {
     index: true,

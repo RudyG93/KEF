@@ -946,6 +946,14 @@ img {
     flex: 1 1 100%;
     justify-content: center;
   }
+
+  .svc-cta {
+    padding: 22px 18px;
+  }
+  .svc-cta .btn {
+    flex: 1 1 100%;
+    justify-content: center;
+  }
 }
 
 /* ── Numéro de téléphone affiché en texte (header / hero / footer) ── */
@@ -1018,6 +1026,181 @@ img {
   width: 1px;
   height: 1px;
   opacity: 0;
+}
+
+/* ── Pages métier×ville (SEO local) ────────────────────────────── */
+
+.svc {
+  max-width: 880px;
+}
+.crumbs {
+  font-size: 13px;
+  color: var(--muted);
+  margin-bottom: 26px;
+}
+.crumbs a {
+  color: var(--muted);
+  text-decoration: none;
+}
+.crumbs a:hover {
+  color: var(--orange);
+}
+.svc-title {
+  margin: 10px 0 16px;
+}
+.svc-intro {
+  font-size: clamp(16px, 1.4vw, 19px);
+  line-height: 1.6;
+  color: var(--muted);
+  max-width: 640px;
+  margin: 0 0 40px;
+}
+.svc-prose h2,
+.svc-zone h2,
+.faq h2 {
+  font-family: var(--display);
+  font-size: clamp(26px, 3vw, 34px);
+  letter-spacing: 0.5px;
+  margin: 38px 0 12px;
+}
+.svc-prose p,
+.svc-zone p {
+  font-size: 15.5px;
+  line-height: 1.75;
+  color: var(--ink-2);
+  margin: 0 0 14px;
+  max-width: 720px;
+}
+.svc-prose ul {
+  padding-left: 20px;
+  margin: 0 0 14px;
+}
+.svc-prose li {
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--ink-2);
+  margin-bottom: 4px;
+}
+.chip--light {
+  background: var(--surface);
+  border-color: var(--line-2);
+  color: var(--ink-2);
+}
+
+.faq-item {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--white);
+  margin-bottom: 10px;
+  padding: 0 18px;
+}
+.faq-item summary {
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 15px;
+  color: var(--ink);
+  padding: 15px 0;
+  list-style: none;
+  position: relative;
+  padding-right: 28px;
+}
+.faq-item summary::-webkit-details-marker {
+  display: none;
+}
+.faq-item summary::after {
+  content: "+";
+  /* Syntaxe « texte alternatif vide » : le glyphe décoratif n'est pas
+     annoncé par les lecteurs d'écran (navigateurs récents). */
+  content: "+" / "";
+  position: absolute;
+  right: 2px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--orange);
+  font-size: 20px;
+  font-weight: 700;
+}
+.faq-item[open] summary::after {
+  content: "–";
+  content: "–" / "";
+}
+.faq-item p {
+  font-size: 14.5px;
+  line-height: 1.7;
+  color: var(--muted);
+  margin: 0;
+  padding: 0 0 16px;
+}
+
+.svc-cta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  background: var(--anthracite);
+  color: #fff;
+  border-radius: 18px;
+  padding: 28px 30px;
+  margin-top: 44px;
+}
+.svc-cta-label {
+  font-size: 13px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--dark-muted);
+}
+.svc-cta-phone {
+  font-family: var(--display);
+  font-size: clamp(26px, 7vw, 34px);
+  letter-spacing: 2px;
+  margin: 4px 0 2px;
+  white-space: nowrap;
+}
+.svc-cta-phone span {
+  color: var(--orange);
+}
+.svc-cta-sub {
+  font-size: 13px;
+  color: var(--dark-muted);
+}
+
+.svc-related {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 18px;
+  margin-top: 30px;
+  font-size: 14px;
+  color: var(--muted);
+}
+.svc-related a {
+  color: var(--orange-deep);
+  font-weight: 600;
+  text-decoration: none;
+}
+.svc-related a:hover {
+  text-decoration: underline;
+}
+
+/* Liens des cartes services (accueil) */
+.service-links {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.service-links .service-link {
+  margin-top: 0;
+}
+.service-more {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--muted);
+  text-decoration: none;
+}
+.service-more:hover {
+  color: var(--orange);
+  text-decoration: underline;
 }
 
 /* ── Page Mentions légales ─────────────────────────────────────── */
