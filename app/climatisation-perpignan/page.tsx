@@ -12,11 +12,11 @@ export const metadata = serviceMetadata({
 const faq: FaqItem[] = [
   {
     q: "Combien coûte une installation de climatisation à Perpignan ?",
-    a: "Le prix dépend de la surface à climatiser, du nombre de pièces (mono-split ou multi-split), de la configuration du logement et du modèle choisi. Chaque projet étant différent, nous établissons un devis gratuit et sans engagement après un échange sur vos besoins — vous savez exactement où vous allez avant de vous décider.",
+    a: "Le prix dépend de la surface à climatiser, du nombre de pièces (mono-split ou multi-split), de la configuration du logement et du modèle choisi. Chaque projet étant différent, j'établis un devis gratuit et sans engagement après un échange sur vos besoins — vous savez exactement où vous allez avant de vous décider.",
   },
   {
     q: "Quelle marque de climatisation installez-vous ?",
-    a: "Nous installons principalement des équipements Mitsubishi Electric, une référence en fiabilité et en performance énergétique. Selon votre budget et vos besoins, nous pouvons aussi vous proposer d'autres marques reconnues — toujours avec un conseil honnête sur le meilleur rapport qualité/prix.",
+    a: "J'installe principalement des équipements Mitsubishi Electric, une référence en fiabilité et en performance énergétique. Selon votre budget et vos besoins, je peux aussi vous proposer d'autres marques reconnues — toujours avec un conseil honnête sur le meilleur rapport qualité/prix.",
   },
   {
     q: "Une climatisation réversible chauffe-t-elle vraiment en hiver ?",
@@ -28,7 +28,7 @@ const faq: FaqItem[] = [
   },
   {
     q: "Intervenez-vous en urgence pour un dépannage de climatisation ?",
-    a: "Oui, nous sommes disponibles 24h/24 et 7j/7 pour les dépannages sur Perpignan et dans un rayon d'environ 30 km : clim qui ne refroidit plus, fuite, bruit anormal, code erreur… Appelez-nous, nous établissons un premier diagnostic par téléphone.",
+    a: "Oui, je suis disponible 24h/24 et 7j/7 pour les dépannages sur Perpignan et dans un rayon d'environ 30 km : clim qui ne refroidit plus, fuite, bruit anormal, code erreur… Appelez-moi, j'établis un premier diagnostic par téléphone.",
   },
 ];
 
@@ -46,8 +46,8 @@ export default function ClimatisationPerpignanPage() {
           <span className="accent">installation, entretien, dépannage</span>
         </>
       }
-      intro="Étés de plus en plus chauds, tramontane, hivers doux : dans les Pyrénées-Orientales, la climatisation réversible est devenue l'équipement de confort incontournable. KEF, artisan basé à Rivesaltes, installe, entretient et dépanne vos climatisations à Perpignan et dans les communes alentour — pour les particuliers comme pour les professionnels."
-      zoneIntro="Installations neuves comme dépannages clim : nous nous déplaçons depuis Rivesaltes dans un rayon d'environ 30 km, notamment à :"
+      intro="Étés de plus en plus chauds, tramontane, hivers doux : dans les Pyrénées-Orientales, la climatisation réversible est devenue l'équipement de confort incontournable. Artisan basé à Rivesaltes, j'installe, j'entretiens et je dépanne vos climatisations à Perpignan et dans les communes alentour — pour les particuliers comme pour les professionnels."
+      zoneIntro="Installations neuves comme dépannages clim : je me déplace depuis Rivesaltes dans un rayon d'environ 30 km, notamment à :"
       faq={faq}
       related={[
         { href: "/plombier-perpignan", label: "Plombier à Perpignan" },
@@ -56,12 +56,12 @@ export default function ClimatisationPerpignanPage() {
     >
       <h2>Installation de climatisation réversible</h2>
       <p>
-        Chaque logement est différent : une installation réussie commence par un
-        dimensionnement sérieux. Nous étudions la surface, l&apos;isolation,
-        l&apos;exposition et vos habitudes pour vous proposer la solution
-        adaptée — <strong>mono-split</strong> pour une pièce,{" "}
-        <strong>multi-split</strong> pour plusieurs, ou pompe à chaleur air/air
-        pour chauffer et rafraîchir toute l&apos;année. Nous travaillons
+        Chaque logement est différent : une installation réussie commence par
+        un dimensionnement sérieux. J&apos;étudie la surface,
+        l&apos;isolation, l&apos;exposition et vos habitudes pour vous
+        proposer la solution adaptée — <strong>mono-split</strong> pour une
+        pièce, <strong>multi-split</strong> pour plusieurs, ou pompe à chaleur
+        air/air pour chauffer et rafraîchir toute l&apos;année. Je travaille
         principalement avec <strong>Mitsubishi Electric</strong>, référence du
         marché pour la fiabilité et la discrétion sonore.
       </p>
@@ -74,17 +74,16 @@ export default function ClimatisationPerpignanPage() {
       <h2>Entretien de votre climatisation</h2>
       <p>
         Filtres encrassés, fluide à contrôler, performances en baisse : sans
-        entretien, une climatisation consomme plus et vieillit mal. Nous
-        proposons un entretien complet — nettoyage, contrôles
-        d&apos;étanchéité, vérification des performances — pour prolonger la
-        durée de vie de votre installation et garder une facture
-        d&apos;électricité maîtrisée.
+        entretien, une climatisation consomme plus et vieillit mal. Je propose
+        un entretien complet — nettoyage, contrôles d&apos;étanchéité,
+        vérification des performances — pour prolonger la durée de vie de
+        votre installation et garder une facture d&apos;électricité maîtrisée.
       </p>
 
       <h2>Dépannage clim &amp; recharge de gaz</h2>
       <p>
         Clim qui ne refroidit plus, unité qui goutte, bruit inhabituel, code
-        erreur sur la télécommande… Nous intervenons{" "}
+        erreur sur la télécommande… J&apos;interviens{" "}
         <strong>24h/24 et 7j/7</strong> sur Perpignan et ses alentours pour
         diagnostiquer et réparer : recherche de fuite, recharge de fluide
         frigorigène, remplacement de pièces. Un premier échange par téléphone
@@ -95,10 +94,11 @@ export default function ClimatisationPerpignanPage() {
       <p>
         KEF, c&apos;est un artisan du coin — pas une plateforme ni un
         sous-traitant. Du premier appel à la mise en service, vous parlez à la
-        même personne, qui connaît votre installation et répond de son travail.
-        Et comme nous intervenons aussi en plomberie et en électricité, les
-        travaux annexes (alimentation électrique de l&apos;unité, évacuation
-        des condensats) sont gérés sans intervenant supplémentaire.
+        même personne, qui connaît votre installation et répond de son
+        travail. Et comme j&apos;interviens aussi en plomberie et en
+        électricité, les travaux annexes (alimentation électrique de
+        l&apos;unité, évacuation des condensats) sont gérés sans intervenant
+        supplémentaire.
       </p>
     </ServicePage>
   );

@@ -63,7 +63,7 @@ export function ServicePage({
         <div className="svc-prose">{children}</div>
 
         <section className="svc-zone" aria-label="Zone d'intervention">
-          <h2>Où intervenons-nous ?</h2>
+          <h2>Ma zone d&apos;intervention</h2>
           <p>{zoneIntro}</p>
           <div className="chips">
             {site.areasServed.map((commune) => (
@@ -100,7 +100,7 @@ export function ServicePage({
         </div>
 
         <nav className="svc-related" aria-label="Autres services">
-          <span>Nos autres services :</span>
+          <span>Mes autres services :</span>
           {related.map((link) => (
             <Link href={link.href} key={link.href}>
               {link.label}

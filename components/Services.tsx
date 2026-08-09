@@ -5,7 +5,7 @@ export function Services() {
     <section id="services" className="section" aria-labelledby="services-title">
       <div className="section-head">
         <div>
-          <div className="eyebrow">Nos prestations</div>
+          <div className="eyebrow">Mes prestations</div>
           <h2 id="services-title" className="h2">
             Trois métiers, <span className="accent">un savoir-faire</span>
           </h2>

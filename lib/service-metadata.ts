@@ -22,7 +22,7 @@ export function serviceMetadata(input: {
     openGraph: {
       type: "website",
       locale: "fr_FR",
-      siteName: site.name,
+      siteName: site.siteName,
       url: input.path,
       title: input.title,
       description: input.description,

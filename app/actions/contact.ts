@@ -110,7 +110,7 @@ export async function sendContact(
     return {
       status: "error",
       message:
-        "L'envoi n'est pas encore configuré. Affichez le numéro et appelez-nous directement.",
+        "L'envoi n'est pas encore configuré. Affichez le numéro et appelez-moi directement.",
     };
   }
 
@@ -148,7 +148,7 @@ export async function sendContact(
     return {
       status: "error",
       message:
-        "L'envoi a échoué. Réessayez dans un instant ou appelez-nous directement.",
+        "L'envoi a échoué. Réessayez dans un instant ou appelez-moi directement.",
     };
   }
 

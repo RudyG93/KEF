@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Bebas_Neue, Barlow } from "next/font/google";
 import { site } from "@/lib/site";
-import { localBusinessJsonLd } from "@/lib/structured-data";
+import { localBusinessJsonLd, webSiteJsonLd } from "@/lib/structured-data";
 import "./globals.css";
 
 // Polices auto-hébergées via next/font (mêmes familles que le design d'origine).
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     template: "%s · KEF",
   },
   description: site.description,
-  applicationName: site.name,
+  applicationName: site.siteName,
   authors: [{ name: site.owner }],
   creator: site.owner,
   publisher: site.name,
@@ -53,7 +53,7 @@ export const metadata: Metadata = {
     type: "website",
     locale: "fr_FR",
     url: site.url,
-    siteName: site.name,
+    siteName: site.siteName,
     title: "KEF — Clim · Sanitaire · Électricité · Artisan à Perpignan",
     description: site.description,
   },
@@ -99,9 +99,9 @@ export default function RootLayout({
         {children}
         <script
           type="application/ld+json"
-          // JSON-LD : données structurées LocalBusiness pour les moteurs de recherche.
+          // JSON-LD : LocalBusiness + WebSite (nom de site affiché par Google).
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify(localBusinessJsonLd()),
+            __html: JSON.stringify([localBusinessJsonLd(), webSiteJsonLd()]),
           }}
         />
       </body>

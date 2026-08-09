@@ -3,6 +3,23 @@ import { site } from "@/lib/site";
 export type FaqItem = { q: string; a: string };
 
 /**
+ * Nœud WebSite : c'est lui que Google utilise pour afficher le « nom du site »
+ * dans les résultats de recherche (à la place du domaine brut).
+ */
+export function webSiteJsonLd() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": `${site.url}/#website`,
+    name: site.siteName,
+    alternateName: [site.name, site.commercialName],
+    url: site.url,
+    inLanguage: "fr-FR",
+    publisher: { "@id": `${site.url}/#business` },
+  };
+}
+
+/**
  * Données structurées d'une page métier×ville (Service + FAQPage + fil
  * d'Ariane). Retourne un tableau d'objets JSON-LD à injecter dans la page.
  */

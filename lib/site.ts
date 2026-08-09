@@ -7,6 +7,8 @@
  */
 export const site = {
   name: "KEF",
+  // Nom de site affiché par Google dans les résultats (schéma WebSite + og:site_name).
+  siteName: "KEF Clim",
   commercialName: "KF Clim & Sanitaire",
   owner: "Kentin Ferreira",
   jobTitle: "Gérant — Artisan",
